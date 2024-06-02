@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 my-5 h-[10vh] m-5 flex items-center justify-evenly text-xl font-serif   mx-2">
+    <div className="bg-white rounded-lg shadow-lg p-4 my-5 h-[10vh] mx-4 flex items-center justify-evenly text-xl font-serif ">
       <Link href="/"  className="hover:text-b1">
         Medical Profile
       </Link>
