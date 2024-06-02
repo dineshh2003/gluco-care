@@ -19,6 +19,7 @@ const Exercise = () => {
     <div className="bg-white shadow-md rounded-lg overflow-hidden container mx-1 p-4 h-fit w-[72vw]">
       <div className="flex justify-between p-4 border-b">
         <h2 className="text-xl font-semibold">Exercise</h2>
+        <button className="bg-teal-500 text-white px-4 py-2 rounded">Today's Diet</button>
       </div>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">

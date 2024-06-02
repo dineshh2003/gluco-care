@@ -1,4 +1,5 @@
 
+import PredictDiabetesForm from "@/components/DiabetesForm";
 import Exercise from "@/components/Exercise";
 import HeartRate from "@/components/HeartRate";
 import Navbar from "@/components/Navbar";
@@ -11,8 +12,9 @@ export default function Home() {
     <main className="flex flex-row h-screen w-[95vw] bg-b2 ">
       <div className="w-[80vw] h-[95vh] bg-white my-5 mx-4 rounded-xl ">
           <Navbar/> 
-          <Records/>
-          <Exercise/>
+          {/* <Records/>
+          <Exercise/> */}
+          <PredictDiabetesForm/>
       </div>
       <div className="w-[20vw] h-full flex items-center justify-center rounded-lg">
         <PatientInfo />
