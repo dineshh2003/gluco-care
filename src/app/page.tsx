@@ -6,12 +6,18 @@ import Exercise from '@/components/Exercise';
 import PredictDiabetesForm from '@/components/DiabetesForm';
 import Records from '@/components/Record';
 import PatientInfo from '@/components/PatientInfo';
+import Chatbot from '@/components/Chatbot';
 
 export default function Home() {
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
+  const [showChatbot, setShowChatbot] = useState(false);
 
   const handleButtonClick = (component: string) => {
     setActiveComponent(component);
+  };
+
+  const toggleChatbot = () => {
+    setShowChatbot(!showChatbot);
   };
 
   return (
@@ -21,9 +27,11 @@ export default function Home() {
           {activeComponent === 'Medical Profile' && <Records /> }
           {activeComponent === 'Predict-Diabetes' && <PredictDiabetesForm />}
           {activeComponent === 'Medical Profile' && <Exercise />}
+          {<Chatbot />}
       </div>
       <div className="w-[20vw] h-full flex items-center justify-center rounded-lg">
         <PatientInfo />
+        {/* Button to toggle chatbot visibility */}
       </div>
     </main>
   );
