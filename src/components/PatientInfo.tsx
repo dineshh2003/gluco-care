@@ -37,18 +37,6 @@ const PatientInfo = () => {
         </ul>
       </div>
 
-      {/* <div className="mt-6 bg-green-50 p-4 rounded-lg shadow-inner">
-        <h3 className="text-lg font-semibold text-teal-600 flex items-center">
-          <span className="mr-2">📞</span> CONTACT
-        </h3>
-        <ul className="mt-2 text-gray-600 space-y-1">
-          <li className="flex justify-between"><strong>Mobile:</strong><span>(+63) 8396162764</span></li>
-          <li className="flex justify-between"><strong>Email:</strong><span>green478@gmail.com</span></li>
-          <li className="flex justify-between"><strong>Next of Kin:</strong><span>Linda Green</span></li>
-          <li className="flex justify-between"><strong>Mobile:</strong><span>(+63) 8396162764</span></li>
-        </ul>
-      </div> */}
-
       <div className="text-center mt-4">
         <button className="text-blue-500 hover:underline">See More</button>
       </div>
