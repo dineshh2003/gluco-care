@@ -68,7 +68,7 @@ const PatientFullInfo: React.FC = () => {
         </div>
         <button
           onClick={() => setIsEditing(!isEditing)}
-          className="bg-blue-500 text-white py-2 px-4 rounded"
+          className="bg-b1 text-white py-2 px-4 rounded"
         >
           {isEditing ? 'Cancel' : 'Edit'}
         </button>

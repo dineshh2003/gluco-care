@@ -1,9 +1,8 @@
-const { strict } = require('assert');
 const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({
             id : {
-                type : string,
+                type : String,
                 required : true
             },
             patientPhoto: {
@@ -11,19 +10,19 @@ const patientSchema = new mongoose.Schema({
                 required : true
             },
             firstName : {
-                type : string,
+                type : String,
                 required : true
             },
             LastName : {
-                type : string,
+                type : String,
                 required : true
             },
             firstName : {
-                type : string,
+                type : String,
                 required : true
             },
             Gender : {
-                type : string,
+                type : String,
                 required : true
             },
             DOB : {
@@ -39,15 +38,15 @@ const patientSchema = new mongoose.Schema({
                 required : true,
             },
             City:{
-                type: string,
+                type: String,
                 required : true
             },
             state : {
-                type: string,
+                type: String,
                 required : true
             },
             ZipCode : {
-                type: string,
+                type: String,
                 required : true
             },
             KnownMedicalCondition: {
