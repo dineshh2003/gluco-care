@@ -1,48 +1,41 @@
-import React, { useState } from 'react';
-import { askOpenAI } from './utils/openai';
-
-interface Message {
-  text: string;
-  fromUser: boolean;
-}
+import React, { useState, FormEvent } from 'react';
+import axios from 'axios';
 
 const Chatbot: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [input, setInput] = useState<string>('');
+  const [response, setResponse] = useState<string>('');
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim()) return;
-
-    const userMessage: Message = { text: inputValue, fromUser: true };
-    setMessages([...messages, userMessage]);
-
-    const response = await askOpenAI(inputValue);
-    const botMessage: Message = { text: response, fromUser: false };
-    setMessages((prevMessages) => [...prevMessages, botMessage]);
-    setInputValue('');
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    try {
+      // Update the URL to match your backend endpoint
+      const res = await axios.post('http://localhost:4000/predict', { prompt: input });
+      setResponse(res.data.response);
+    } catch (error) {
+      console.error(error);
+      setResponse('Error: Could not get response from server.');
+    }
   };
 
   return (
-    <div className="chatbot">
-      <div className="messages">
-        {messages.map((msg, index) => (
-          <div key={index} className={msg.fromUser ? 'user-message' : 'bot-message'}>
-            {msg.text}
-          </div>
-        ))}
+    <div style={{ padding: '20px', border: '1px solid black', borderRadius: '8px' }}>
+      <h1>Diabetes Information Chatbot</h1>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask something about diabetes..."
+          rows={4}
+          cols={50}
+          style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+        />
+        <br />
+        <button type="submit" style={{ padding: '10px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>Submit</button>
+      </form>
+      <div style={{ marginTop: '20px' }}>
+        <h2>Response:</h2>
+        <p>{response}</p>
       </div>
-      <input
-        type="text"
-        placeholder="Type a message..."
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            handleSendMessage();
-          }
-        }}
-      />
-      <button onClick={handleSendMessage}>Send</button>
     </div>
   );
 };

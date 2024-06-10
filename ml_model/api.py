@@ -4,13 +4,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Literal
 
-# Load the model
+
 model = joblib.load("model.pkl")
 
-# Create the FastAPI app
 app = FastAPI()
 
-# Define the input data model
 class DiabetesPredictionRequest(BaseModel):
     gender: Literal["Male", "Female"]
     age: float
@@ -21,7 +19,6 @@ class DiabetesPredictionRequest(BaseModel):
     HbA1c_level: float
     blood_glucose_level: float
 
-# Define the preprocessing function
 def preprocess_input(input_data: DiabetesPredictionRequest):
     # Convert input data to DataFrame
     input_df = pd.DataFrame([input_data.dict()])
