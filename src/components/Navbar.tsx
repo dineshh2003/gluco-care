@@ -15,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleButtonClick }) => {
       <button onClick={() => handleButtonClick('Predict-Diabetes')} className="hover:text-b1">
         Predict-Diabetes
       </button>
-      <button onClick={() => handleButtonClick('Chat-bot')} className="hover:text-b1">
+      <button onClick={() => handleButtonClick('Chatbot')} className="hover:text-b1">
         Chat-bot
       </button>
       <button onClick={() => handleButtonClick('Diet')} className="hover:text-b1">
