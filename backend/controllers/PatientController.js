@@ -17,4 +17,22 @@ const updatePatient = async (req, res) => {
   }
 };
 
-module.exports = { updatePatient };
+
+const getPatient = async(req,res) =>{
+    try {
+        const patient = await Patient.findById();
+        if (!patient) {
+            return res.status(404).json({ message: 'Patient not found' });
+        }
+        res.json(patient);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to get patient' });
+    }
+}
+
+
+
+
+
+module.exports = { updatePatient , getPatient };

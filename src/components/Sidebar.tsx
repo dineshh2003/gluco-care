@@ -19,7 +19,7 @@ const Sidebar = () => {
         <Link href="/chat">
           <FaVideo className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Video Call" />
         </Link>
-        <Link href="/prediction">
+        <Link href="/stores">
           <FaHospital className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Prediction" />
         </Link>
         <Link href="/stores">

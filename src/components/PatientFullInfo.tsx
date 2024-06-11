@@ -9,7 +9,7 @@ const PatientFullInfo: React.FC = () => {
     firstName: 'Dinesh',
     lastName: 'Jangid',
     Gender: 'Male',
-    DOB: '05/11/2003',
+    DOB: '11/05/2003',
     BloodType: 'O+',
     Address: 'Sarwari gate',
     City: 'Kishangarh',
@@ -33,7 +33,6 @@ const PatientFullInfo: React.FC = () => {
   };
 
   const handleSave = () => {
-    // Implement save functionality here, e.g., make an API call to save the updated patient data
     setIsEditing(false);
   };
 
