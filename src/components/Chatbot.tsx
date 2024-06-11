@@ -18,23 +18,28 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '20px', border: '1px solid black', borderRadius: '8px' }}>
-      <h1>Diabetes Information Chatbot</h1>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask something about diabetes..."
-          rows={4}
-          cols={50}
-          style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
-        />
-        <br />
-        <button type="submit" style={{ padding: '10px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>Submit</button>
-      </form>
-      <div style={{ marginTop: '20px' }}>
-        <h2>Response:</h2>
-        <p>{response}</p>
+    <div className="flex flex-col items-center justify-center  h-[80vh] bg-gray-100 p-4">
+      <div className="bg-b2 w-[70vw] h-[70vh] rounded-lg shadow-lg flex flex-col ">
+        <h1 className="text-2xl font-bold mb-4 text-center font-sans">Diabetes Information Chatbot</h1>
+        <form onSubmit={handleSubmit} className="mb-4 mx-auto w-5/6  ">
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Ask something about diabetes..."
+            rows={4}
+            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-b1 bg-gray-100 "
+          />
+          <button
+            type="submit"
+            className="w-full bg-b1 text-white p-2 rounded-lg hover:bg-b2 focus:outline-none focus:ring-2 focus:ring-b1"
+          >
+            Submit
+          </button>
+        </form>
+        <div className=" p-4 w-[60vw] rounded-lg shadow-lg flex flex-col m-auto bg-gray-100 focus:ring-b1" > 
+          <h2 className="text-xl font-semibold mb-2">Response:</h2> 
+          <p className="text-gray-800">{response}</p>
+        </div>
       </div>
     </div>
   );

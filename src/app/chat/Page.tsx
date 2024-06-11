@@ -36,32 +36,40 @@ const Chatbot: FC = () => {
     };
 
     return (
-        <div>
-            <h1>Diabetes Chatbot</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 m-3">
+            <h1 className="text-2xl font-bold mb-4">Diabetes Chatbot</h1>
             <div
                 id="chatbox"
-                style={{
-                    width: '500px',
-                    height: '400px',
-                    border: '1px solid #ccc',
-                    padding: '10px',
-                    overflowY: 'scroll'
-                }}
+                className="w-full max-w-md h-96 bg-white border border-gray-300 rounded-lg p-4 overflow-y-scroll shadow-lg"
             >
                 {messages.map((msg, index) => (
-                    <p key={index}>
-                        <strong>{msg.user ? 'You:' : 'Bot:'}</strong> {msg.text}
-                    </p>
+                    <div
+                        key={index}
+                        className={`flex mb-2 ${msg.user ? 'justify-end' : 'justify-start'}`}
+                    >
+                        <p
+                            className={`px-4 py-2 rounded-lg ${msg.user ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-800'}`}
+                        >
+                            <strong>{msg.user ? 'You:' : 'Bot:'}</strong> {msg.text}
+                        </p>
+                    </div>
                 ))}
             </div>
-            <input
-                type="text"
-                value={input}
-                onChange={handleChange}
-                placeholder="Type a message..."
-                style={{ width: '400px', padding: '10px' }}
-            />
-            <button onClick={handleSend} style={{ padding: '10px' }}>Send</button>
+            <div className="flex mt-4 w-full max-w-md">
+                <input
+                    type="text"
+                    value={input}
+                    onChange={handleChange}
+                    placeholder="Type a message..."
+                    className="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <button
+                    onClick={handleSend}
+                    className="bg-green-500 text-white px-4 py-2 rounded-r-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                    Send
+                </button>
+            </div>
         </div>
     );
 };
