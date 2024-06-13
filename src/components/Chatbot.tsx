@@ -36,9 +36,11 @@ const Chatbot: React.FC = () => {
             Submit
           </button>
         </form>
-        <div className=" p-4 w-[60vw] rounded-lg shadow-lg flex flex-col m-auto bg-gray-100 focus:ring-b1" > 
+        <div className=" p-4 w-[60vw] rounded-lg shadow-lg h-[35vh] flex flex-col m-auto bg-gray-100 focus:ring-b1" > 
           <h2 className="text-xl font-semibold mb-2">Response:</h2> 
+          <div className="overflow-scroll scroll-smooth">
           <p className="text-gray-800">{response}</p>
+          </div>
         </div>
       </div>
     </div>

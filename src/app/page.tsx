@@ -9,7 +9,7 @@ import PatientInfo from '@/components/PatientInfo';
 import Chatbot from '@/components/Chatbot'; // Import the chatbot component
 
 export default function Home() {
-  const [activeComponent, setActiveComponent] = useState<string | null>(null);
+  const [activeComponent, setActiveComponent] = useState<string | null>('Chatbot');
 
   const handleButtonClick = (component: string) => {
     setActiveComponent(component);

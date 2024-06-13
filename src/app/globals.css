@@ -13,3 +13,11 @@ body::-webkit-scrollbar {
   display: none; /* WebKit (Chrome, Safari, etc.) */
 }
 
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap') format('woff2'),
+       url('/path-to-your-font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
