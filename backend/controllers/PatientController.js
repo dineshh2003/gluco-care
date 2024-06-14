@@ -5,7 +5,7 @@ const updatePatient = async (req, res) => {
     const { id } = req.params;
     const updatedData = req.body;
 
-    const patient = await Patient.findByIdAndUpdate(id, updatedData, { new: true });
+    const patient = await Patient.updateOne(updatedData, { new: true });
 
     if (!patient) {
       return res.status(404).json({ message: 'Patient not found' });
@@ -20,7 +20,9 @@ const updatePatient = async (req, res) => {
 
 const getPatient = async(req,res) =>{
     try {
-        const patient = await Patient.findById();
+      const { id } = req.params;
+
+        const patient = await Patient.find();
         if (!patient) {
             return res.status(404).json({ message: 'Patient not found' });
         }
