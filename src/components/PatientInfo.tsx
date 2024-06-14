@@ -1,7 +1,6 @@
-import axios from 'axios';
+import axios from '@/app/axios-config';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-
 
 interface Patient {
   patientPhoto: string;
@@ -23,36 +22,63 @@ interface Patient {
   BLOODGLUCOSE: string;
 }
 
+const initialPatientData: Patient = {
+  patientPhoto: '/logo-1.png',
+  firstName: 'Dinesh',
+  lastName: 'Jangid',
+  Gender: 'Male',
+  DOB: '11/5/2003',
+  BloodType: 'O+',
+  Address: 'Sarwari gate, Kishangarh, Rajasthan, 305***',
+  City: 'Kishangarh',
+  state: 'Rajasthan',
+  ZipCode: '305***',
+  KnownMedicalCondition: 'Diabetes',
+  Allergies: 'Peanuts',
+  Hypertension: 'Yes',
+  HeartDisease: 'No',
+  BMI: '25',
+  HBA1CLEVEL: '6.5',
+  BLOODGLUCOSE: '110'
+};
+
+// const calculateAge = (dob: string) => {
+//   const birthDate = new Date(dob);
+//   const ageDiff = Date.now() - birthDate.getTime();
+//   const ageDate = new Date(ageDiff);
+//   return Math.abs(ageDate.getUTCFullYear() - 1970);
+// };
+
+const PatientInfo: React.FC = () => {
+  // const [info, setInfo] = useState<Patient>(initialPatientData);
+  // const [error, setError] = useState<string | null>(null);
+
+  // useEffect(() => {
+  //   const fetchInfo = async () => {
+  //     try {
+  //       const response = await axios.get('/api/patients');
+  //       console.log(response.data); 
+  //       setInfo(response.data);
+  //     } catch (err) {
+  //       console.error(err);
+  //       setError('Error fetching patient data');
+  //     }
+  //   }
+  //   fetchInfo();
+  // }, []);
 
 
 
-
-
-const PatientInfo = () => {
-    const [info , SetInfo] = useState<Patient>();
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(()=>{
-        const fetchInfo = async() => {
-              try {
-                  const response = await axios.get('/api/patients');
-                  SetInfo(response.data);
-              } catch (err) {
-                  setError('error fetching patient data');
-              }
-        }
-        fetchInfo();
-    } , [])
 
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4 my-5 w-[20vw] h-[95vh] m-5 flex flex-col justify-between mx-2">
       <div className="text-center">
         <div className="relative inline-block">
-          <Image src="/logo-1.png" height={80} width={80} alt='' className="rounded-full "/>
+          <Image src="/logo-1.png" height={80} width={80} alt="Patient Photo" className="rounded-full" />
         </div>
-        <h2 className="text-xl font-semibold mt-4">{info?.firstName} </h2>
-        <p className="text-gray-600">patient id</p>
+        <h2 className="text-xl font-semibold mt-4">jadu</h2>
+        <p className="text-gray-600">Patient ID: jadu123</p>
       </div>
 
       <div className="mt-6 bg-green-50 p-4 rounded-lg shadow-inner">
@@ -60,10 +86,10 @@ const PatientInfo = () => {
           <span className="mr-2">🗂</span> PERSONAL
         </h3>
         <ul className="mt-2 text-gray-600 space-y-1">
-          <li className="flex justify-between"><strong>age</strong><span>50 yrs. old</span></li>
-          <li className="flex justify-between"><strong>Gender:</strong><span>Male</span></li>
-          <li className="flex justify-between"><strong>blood group</strong><span>O+</span></li>
-          <li className="flex justify-between"><strong>Location:</strong><span>Manila</span></li>
+          <li className="flex justify-between"><strong>Age:</strong><span> 21 yrs. old</span></li>
+          <li className="flex justify-between"><strong>Gender:</strong><span>male</span></li>
+          <li className="flex justify-between"><strong>Blood Group:</strong><span> O+ </span></li>
+          <li className="flex justify-between"><strong>Location:</strong><span> mars</span></li>
         </ul>
       </div>
 
@@ -72,14 +98,10 @@ const PatientInfo = () => {
           <span className="mr-2">🩺</span> MEDICAL
         </h3>
         <ul className="mt-2 text-gray-600 space-y-1">
-          <li className="flex justify-between"><strong>Condition:</strong><span>Kidney Disease</span></li>
-          <li className="flex justify-between"><strong>BMI:</strong><span>Dr. Michael Dee</span></li>
-          <li className="flex justify-between"><strong>Allergies:</strong><span>Tilorone</span></li>
+          <li className="flex justify-between"><strong>Condition:</strong><span>Dhoop</span></li>
+          <li className="flex justify-between"><strong>BMI:</strong><span>thik hai</span></li>
+          <li className="flex justify-between"><strong>Allergies:</strong><span> krish </span></li>
         </ul>
-      </div>
-
-      <div className="text-center mt-4">
-        <button className="text-blue-500 hover:underline">See More</button>
       </div>
     </div>
   );

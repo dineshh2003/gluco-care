@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const patientRoutes = require('./routes/patientRoutes')
 const cors = require('cors');
-
+const orderRoutes = require('./routes/orderRoutes');
 
 dotenv.config()
 
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', patientRoutes);
-
+app.use('/api', orderRoutes);
 
 
 const PORT = process.env.PORT;
