@@ -1,28 +1,35 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
+import axios from '@/app/axios-config'; // Assuming you named your Axios configuration file as 'axios-config.js';
 
-const PatientFullInfo: React.FC = () => {
+interface Patient {
+  patientPhoto: string;
+  firstName: string;
+  lastName: string;
+  Gender: string;
+  DOB: string;
+  BloodType: string;
+  Address: string;
+  City: string;
+  state: string;
+  ZipCode: string;
+  KnownMedicalCondition: string;
+  Allergies: string;
+  Hypertension: string;
+  HeartDisease: string;
+  BMI: string;
+  HBA1CLEVEL: string;
+  BLOODGLUCOSE: string;
+}
+
+interface PatientFullInfoProps {
+  patientinfo: Patient;
+}
+
+const PatientFullInfo: React.FC<PatientFullInfoProps> = ({ patientinfo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [patient, setPatient] = useState({
-    patientPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwCh3NOwgS65WyXMnc8twnQrRXmVLb739KhQ&s',
-    firstName: 'Dinesh',
-    lastName: 'Jangid',
-    Gender: 'Male',
-    DOB: '11/05/2003',
-    BloodType: 'O+',
-    Address: 'Sarwari gate',
-    City: 'Kishangarh',
-    state: 'rajasthan',
-    ZipCode: '305***',
-    KnownMedicalCondition: 'Diabetes',
-    Allergies: 'Peanuts',
-    Hypertension: 'Yes',
-    HeartDisease: 'No',
-    BMI: '25',
-    HBA1CLEVEL: '6.5',
-    BLOODGLUCOSE: '110',
-  });
+  const [patient, setPatient] = useState<Patient>(patientinfo);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -32,8 +39,13 @@ const PatientFullInfo: React.FC = () => {
     });
   };
 
-  const handleSave = () => {
-    setIsEditing(false);
+  const handleSave = async () => {
+    try {
+      await axios.put('/api/updatepatients', patient);
+      setIsEditing(false);
+    } catch (error) {
+      console.error('Error updating patient data:', error);
+    }
   };
 
   return (
@@ -62,7 +74,6 @@ const PatientFullInfo: React.FC = () => {
             ) : (
               <h1 className="text-2xl font-bold">{patient.firstName} {patient.lastName}</h1>
             )}
-            <p className="text-lg">{patient.Gender}, {new Date(patient.DOB).toLocaleDateString()}</p>
           </div>
         </div>
         <button
@@ -180,21 +191,19 @@ const PatientFullInfo: React.FC = () => {
             <p><strong>Hypertension:</strong> {patient.Hypertension}</p>
             <p><strong>Heart Disease:</strong> {patient.HeartDisease}</p>
             <p><strong>BMI:</strong> {patient.BMI}</p>
-            <p><strong>HBA1C Level:</strong> {patient.HBA1CLEVEL}</p>
+            <p><strong>HbA1C Level:</strong> {patient.HBA1CLEVEL}</p>
             <p><strong>Blood Glucose:</strong> {patient.BLOODGLUCOSE}</p>
           </>
         )}
       </div>
-      
+
       {isEditing && (
-        <div className="flex justify-end">
-          <button
-            onClick={handleSave}
-            className="bg-green-500 text-white py-2 px-4 rounded"
-          >
-            Save
-          </button>
-        </div>
+        <button
+          onClick={handleSave}
+          className="bg-b1 text-white py-2 px-4 rounded self-end"
+        >
+          Save
+        </button>
       )}
     </div>
   );

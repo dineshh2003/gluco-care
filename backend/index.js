@@ -3,8 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const login = require('./routes/login');
+const loginRoutes = require('./routes/login');
 const patientRoutes = require('./routes/patientRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const storesRoutes = require('./routes/storesRoutes');
 
 const app = express();
 
@@ -32,8 +34,10 @@ mongoose.connect(mongoUrl)
 // Routes
 app.use('/', login);
 app.use('/api', patientRoutes);
+app.use('/api', orderRoutes);
+app.use('/api', storesRoutes);
 
 // Start the server
 app.listen(port, () => {
-    console.log(`The app is running at port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });

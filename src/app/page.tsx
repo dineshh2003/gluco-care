@@ -12,7 +12,12 @@ import Chatbot from '@/components/Chatbot';
 const Home = () => {
  
 
+<<<<<<< HEAD
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
+=======
+export default function Home() {
+  const [activeComponent, setActiveComponent] = useState<string | null>('Chatbot');
+>>>>>>> 9c87a86edb2e2663d331951a11e20ddfdf86d6cc
 
   const handleButtonClick = (component: string) => {
     setActiveComponent(component);

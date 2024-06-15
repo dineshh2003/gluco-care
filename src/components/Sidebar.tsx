@@ -16,7 +16,7 @@ const Sidebar = () => {
         <Link href="/">
           <FaHome className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="home" />
         </Link>
-        <Link href="/chat">
+        <Link href="/prediction">
           <FaVideo className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Video Call" />
         </Link>
         <Link href="/history">

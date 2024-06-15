@@ -17,6 +17,10 @@ const config: Config = {
         b1: "#77C8BF",
         b2: "#C8E2E1",
       },
+      fontFamily:{
+        custom: ['CustomFont', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      }
     },
   },
   plugins: [],
