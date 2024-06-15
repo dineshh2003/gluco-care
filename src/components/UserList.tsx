@@ -1,70 +1,10 @@
-// // components/UserList.tsx
-// "use client"
-// import React, { useState, useEffect } from 'react';
-
-// interface User {
-//   id: number;
-//   name: string;
-// }
-
-// const UserList: React.FC = () => {
-//   const [users, setUsers] = useState<User[]>([]);
-//   const [error, setError] = useState<string>('');
-
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       try {
-//         const response = await fetch('/api/users', {
-//           method: 'GET',
-//           credentials: 'include',
-//         });
-//         if (response.ok) {
-//           const data: User[] = await response.json();
-//           setUsers(data);
-//         } else {
-//           setError('Access Denied');
-//         }
-//       } catch (err) {
-//         setError('Error fetching users');
-//       }
-//     };
-//     fetchUsers();
-//   }, []);
-
-//   if (error) {
-//     return <div>{error}</div>;
-//   }
-
-//   return (
-//     <div className="bg-white p-6 rounded shadow-lg">
-//       <h1 className="text-2xl font-bold mb-4">Logged In Users</h1>
-//       <ul className="list-none p-0">
-//         {users.map(user => (
-//           <li key={user.id} className="bg-gray-100 mb-2 p-4 rounded">
-//             {user.name}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default UserList;
-
-
-
-
-
-
-
-
-
-
 "use client"
 import React, { useState, useEffect } from 'react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // pages/UserPage.js
 const UserPage = () => {
+  const { user, error, isLoading } = useUser();
   const mockUserData = [
     {
       id: 1,

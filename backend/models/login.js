@@ -2,9 +2,7 @@ const mongoose=require('mongoose')
 
 
 const loginSchema=new mongoose.Schema({
-    id:{
-        type : Number,
-    },
+
     name:{
         type:String,
         required:true,

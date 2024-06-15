@@ -3,10 +3,9 @@ const Login=require('../models/login')
 
 
 const handleLogin=async(req,res)=>{
-    const {id,name,email}=req.body;
+    const {name,email}=req.body;
    try{
     const log=await  Login.create({
-       id,
        name,
        email
     })

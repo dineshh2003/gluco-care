@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
+import 'leaflet/dist/leaflet.css';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
+// import 'react-leaflet-search/dist/styles.css'; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+<UserProvider>
+      <body className={inter.className}>
+      <div className="flex h-screen">
+      <Sidebar />
+      <div className="flex-1 bg-white">
+        {children}
+      </div>
+    </div>
+        </body>
+        </UserProvider>
     </html>
   );
 }
