@@ -64,13 +64,13 @@ const PatientInfo = () => {
   }, []);
 
   return (
-    <div>
+    <div className="  ">
       {patientData ? (
         <PatientFullInfo patientinfo={patientData} />
       ) : (
         <p>{error || 'Loading patient data...'}</p>
       )}
-    </div>
+     </div>
   );
 };
 
