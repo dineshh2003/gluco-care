@@ -30,7 +30,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <div>
-        <Link href="/logout">
+        <Link href="/api/auth/logout">
           <FaSignOutAlt className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Logout" />
         </Link>
       </div>
