@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 /* Hide the scrollbar */
 body {
   scrollbar-width: none; /* Firefox */
@@ -14,6 +15,7 @@ body::-webkit-scrollbar {
 }
 
 
+
 @font-face {
   font-family: 'CustomFont';
   src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap') format('woff2'),
@@ -21,3 +23,4 @@ body::-webkit-scrollbar {
   font-weight: 400;
   font-style: normal;
 }
+
