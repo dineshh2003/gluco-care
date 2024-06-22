@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , ChangeEvent, FormEvent} from 'react';
 
 const PredictDiabetesForm = () => {
-  const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState<'Yes' | 'No' | null>(null);
+
   const [formData, setFormData] = useState({
     age: '',
     gender: 'male',
@@ -14,15 +15,15 @@ const PredictDiabetesForm = () => {
     diabetes: 'no'
   });
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
+    const { name, value, type, checked } =e.target as HTMLInputElement;
     setFormData(prevData => ({
       ...prevData,
       [name]: type === 'checkbox' ? checked : value
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await fetch('http://localhost:8000/predict', {
@@ -34,6 +35,7 @@ const PredictDiabetesForm = () => {
       });
       const data = await response.json();
       setPrediction(data.diabetes === 1 ? 'Yes' : 'No');
+
     } catch (error) {
       console.error('Error:', error);
     }

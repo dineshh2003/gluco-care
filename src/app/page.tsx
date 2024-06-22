@@ -12,7 +12,12 @@ import PreLoader from '@/components/PreLoader';
 import Landing from '@/components/Landing';
 
 const Home = () => {
+
   const { user, error, isLoading } = useUser();
+
+ 
+
+
   const [activeComponent, setActiveComponent] = useState<string | null>('Chatbot');
 
   const handleButtonClick = (component: string) => {

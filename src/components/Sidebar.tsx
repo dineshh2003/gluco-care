@@ -3,7 +3,9 @@ import Link from 'next/link';
 import { 
   FaUser, FaHome, FaComments, FaChartLine, FaInfoCircle, 
   FaSignOutAlt, FaCalculator, FaVideo, FaTractor, FaCheck, 
-  FaMedal, FaHospital, FaMapMarkerAlt 
+  FaMedal, FaHospital, FaMapMarkerAlt, 
+  FaDiagnoses,
+  FaAmbulance
 } from 'react-icons/fa';
 
 const Sidebar = () => {
@@ -16,11 +18,11 @@ const Sidebar = () => {
         <Link href="/">
           <FaHome className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="home" />
         </Link>
-        <Link href="/prediction">
+        <Link href="/VideoCall">
           <FaVideo className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Video Call" />
         </Link>
-        <Link href="/history">
-          <FaHospital className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Prediction" />
+        <Link href="/orders">
+          <FaHospital className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="orders" />
         </Link>
         <Link href="/stores">
           <FaMapMarkerAlt className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Map" />
@@ -29,7 +31,10 @@ const Sidebar = () => {
           <FaInfoCircle className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="About" />
         </Link>
       </div>
-      <div>
+      <div className="gap-4 flex flex-col">
+      <Link href="/emergency">
+          <FaAmbulance className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Emergency" />
+        </Link>
         <Link href="/api/auth/logout">
           <FaSignOutAlt className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Logout" />
         </Link>
