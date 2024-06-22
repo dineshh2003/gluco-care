@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -24,7 +25,7 @@ export default function RootLayout({
 <UserProvider>
       <body className={inter.className}>
       <div className="flex h-screen">
-      <Sidebar />
+       {/* <Sidebar /> */}
       <div className="flex-1 bg-white">
         {children}
       </div>

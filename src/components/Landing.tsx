@@ -1,6 +1,6 @@
 "use client";
 import Head from 'next/head';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
@@ -31,42 +31,32 @@ const Landing: React.FC = () => {
     }
   };
 
-  // State to manage the current index of the carousel
   const [currentIndex, setCurrentIndex] = useState(0);
-  // State for interval
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const images = ['/1.jpg', '/2.jpg', '/3.jpg'];
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
 
-  // Array of image URLs
-  const images = ['1.jpg', '2.jpg', '3.jpg'];
-
-  // Function to handle automatic sliding of images
   useEffect(() => {
-    const id = setInterval(() => {
+    intervalId.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change the duration as needed
+    }, 3000);
 
-    // Save the interval id to state
-    setIntervalId(id);
+    return () => {
+      if (intervalId.current) {
+        clearInterval(intervalId.current);
+      }
+    };
+  }, [images.length]);
 
-    // Clear interval on component unmount
-    return () => clearInterval(id);
-  }, []);
-
-  // Function to handle hover pause
   const handleHover = () => {
-    // Pause the carousel on hover
-    if (intervalId) {
-      clearInterval(intervalId);
+    if (intervalId.current) {
+      clearInterval(intervalId.current);
     }
   };
 
-  // Function to handle hover resume
   const handleMouseLeave = () => {
-    // Resume the carousel on mouse leave
-    const id = setInterval(() => {
+    intervalId.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change the duration as needed
-    setIntervalId(id);
+    }, 3000);
   };
 
   return (
@@ -77,20 +67,21 @@ const Landing: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-white rounded-lg shadow-lg p-8 w-[70rem] h-[30rem] grid grid-cols-2">
-        {/* Left side for image carousels */}
-        <div className="relative w-full h-full bg-gray-200 rounded-lg" onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
-          {/* Image carousel */}
+        <div
+          className="relative w-full h-full bg-gray-200 rounded-lg"
+          onMouseEnter={handleHover}
+          onMouseLeave={handleMouseLeave}
+        >
           {images.map((image, index) => (
             <img
               key={index}
-              className={`absolute w-full h-full ${index === currentIndex ? '' : 'hidden'}`}
+              className={`absolute w-full h-full object-cover transition-opacity duration-300 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
               src={image}
               alt={`Image ${index + 1}`}
             />
           ))}
         </div>
 
-        {/* Right side for login form */}
         <div className="flex items-center justify-center p-8">
           <div className="w-full">
             <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
