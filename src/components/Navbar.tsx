@@ -18,8 +18,8 @@ const Navbar: React.FC<NavbarProps> = ({ handleButtonClick }) => {
       <button onClick={() => handleButtonClick('Chatbot')} className="hover:text-b1">
         Chat-bot
       </button>
-      <button onClick={() => handleButtonClick('Diet')} className="hover:text-b1">
-        Diet
+      <button onClick={() => handleButtonClick('Exercise')} className="hover:text-b1">
+        Exercise
       </button>
       <button onClick={() => handleButtonClick('Check-up')} className="hover:text-b1">
         Check-up
