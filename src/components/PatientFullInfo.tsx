@@ -1,7 +1,6 @@
-"use client";
-
 import React, { useState } from 'react';
 import axios from '@/app/axios-config'; // Assuming you named your Axios configuration file as 'axios-config.js';
+import Image from 'next/image';
 
 interface Patient {
   patientPhoto: string;
@@ -52,7 +51,14 @@ const PatientFullInfo: React.FC<PatientFullInfoProps> = ({ patientinfo }) => {
     <div className="bg-b2 rounded-lg shadow-md m-3 w-[93vw] h-[95vh] flex flex-col justify-between text-black p-5 space-y-5 overflow-scroll">
       <div className="bg-white p-5 rounded-lg shadow flex items-center justify-between">
         <div className="flex items-center">
-          <img src={patient.patientPhoto} alt={`${patient.firstName} ${patient.lastName}`} className="w-24 h-24 rounded-full mr-5" />
+          <div className="w-24 h-24 rounded-full mr-5 overflow-hidden">
+            <Image
+              src={patient.patientPhoto}
+              alt={`${patient.firstName} ${patient.lastName}`}
+              width={96}
+              height={96}
+            />
+          </div>
           <div>
             {isEditing ? (
               <>

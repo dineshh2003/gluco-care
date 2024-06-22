@@ -3,14 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import axios from 'axios';
 
+// Define a type for the user data
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+}
+
 const UserPage = () => {
   const { user, error, isLoading } = useUser();
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState<UserData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/login');
+        const response = await axios.get<UserData[]>('http://localhost:5000/api/login');
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data', error);
@@ -27,10 +34,6 @@ const UserPage = () => {
           <div className="text-center mb-2">
             <h2 className="text-2xl font-bold">User Information</h2>
           </div>
-          {/* <div className="mb-1 flex">
-            <label className="block text-gray-700 text-sm font-bold mb-1">ID:</label>
-            <p className="text-gray-900 text-sm ml-2">{user.id}</p>
-          </div> */}
           <div className="mb-1 flex">
             <label className="block text-gray-700 text-sm font-bold mb-1">Name:</label>
             <p className="text-gray-900 text-sm ml-2">{user.name}</p>

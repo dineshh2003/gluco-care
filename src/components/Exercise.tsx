@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const defaultExercises = [
+interface Exercise {
+  name: string;
+  duration: string;
+  caloriesBurned: number;
+}
+
+const defaultExercises: Exercise[] = [
   { name: 'Running', duration: '30 minutes', caloriesBurned: 200 },
   { name: 'Weightlifting', duration: '45 minutes', caloriesBurned: 300 },
   { name: 'Swimming', duration: '60 minutes', caloriesBurned: 400 },
@@ -14,13 +20,13 @@ const defaultExercises = [
 ];
 
 const Exercise = () => {
-  const [exercises, setExercises] = useState(defaultExercises);
-  const [newExercise, setNewExercise] = useState('');
-  const [newDuration, setNewDuration] = useState('');
-  const [checkedExercises, setCheckedExercises] = useState([]);
-  const [submittedExercises, setSubmittedExercises] = useState([]);
-  const [editMode, setEditMode] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(0);
+  const [exercises, setExercises] = useState<Exercise[]>(defaultExercises);
+  const [newExercise, setNewExercise] = useState<string>('');
+  const [newDuration, setNewDuration] = useState<string>('');
+  const [checkedExercises, setCheckedExercises] = useState<number[]>([]);
+  const [submittedExercises, setSubmittedExercises] = useState<Exercise[]>([]);
+  const [editMode, setEditMode] = useState<boolean>(false);
+  const [timeLeft, setTimeLeft] = useState<number>(0);
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -34,13 +40,13 @@ const Exercise = () => {
 
   const addExercise = () => {
     const newCaloriesBurned = 100; // You may calculate this based on some logic
-    const newExerciseEntry = { name: newExercise, duration: newDuration, caloriesBurned: newCaloriesBurned };
+    const newExerciseEntry: Exercise = { name: newExercise, duration: newDuration, caloriesBurned: newCaloriesBurned };
     setExercises([...exercises, newExerciseEntry]);
     setNewExercise('');
     setNewDuration('');
   };
 
-  const handleCheckboxChange = (index) => {
+  const handleCheckboxChange = (index: number) => {
     const updatedCheckedExercises = checkedExercises.includes(index)
       ? checkedExercises.filter((i) => i !== index)
       : [...checkedExercises, index];
@@ -90,32 +96,34 @@ const Exercise = () => {
             </div>
             <p className="text-center mt-2">{percentage}% of workout completed</p>
           </div>
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Select</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exercise</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calories Burned</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {exercises.map((exercise, index) => (
-                <tr key={index}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
-                    <input
-                      type="checkbox"
-                      checked={checkedExercises.includes(index)}
-                      onChange={() => handleCheckboxChange(index)}
-                    />
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600">{exercise.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exercise.duration}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exercise.caloriesBurned}</td>
+          <div className="overflow-y-scroll h-64"> {/* Add scrolling container */}
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Select</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exercise</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calories Burned</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {exercises.map((exercise, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
+                      <input
+                        type="checkbox"
+                        checked={checkedExercises.includes(index)}
+                        onChange={() => handleCheckboxChange(index)}
+                      />
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600">{exercise.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exercise.duration}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exercise.caloriesBurned}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="flex justify-center p-4">
             <button onClick={handleSubmit} className="bg-teal-500 text-white px-4 py-2 rounded">Submit</button>
           </div>

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'; // Import Image from next/image
 
 const Landing: React.FC = () => {
   const [loginState, setLoginState] = useState({
@@ -73,11 +74,12 @@ const Landing: React.FC = () => {
           onMouseLeave={handleMouseLeave}
         >
           {images.map((image, index) => (
-            <img
+            <Image
               key={index}
               className={`absolute w-full h-full object-cover transition-opacity duration-300 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
               src={image}
               alt={`Image ${index + 1}`}
+              layout="fill"
             />
           ))}
         </div>

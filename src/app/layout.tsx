@@ -1,10 +1,9 @@
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
 import 'leaflet/dist/leaflet.css';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
+import AuthenticatedLayout from '@/components/AuthenticatedLayout';
 
 // import 'react-leaflet-search/dist/styles.css'; 
 
@@ -22,16 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-<UserProvider>
-      <body className={inter.className}>
-      <div className="flex h-screen">
-       {/* <Sidebar /> */}
-      <div className="flex-1 bg-white">
-        {children}
-      </div>
-    </div>
+      <UserProvider>
+        <body className={inter.className}>
+          <AuthenticatedLayout>
+            {children}
+          </AuthenticatedLayout>
         </body>
-        </UserProvider>
+      </UserProvider>
     </html>
   );
 }

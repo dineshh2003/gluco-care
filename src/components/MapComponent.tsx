@@ -63,10 +63,10 @@ const MapComponent = () => {
         console.error("Error fetching markers:", error);
       }
     };
-
+  
     fetchMarkers();
-  }, []);
-
+  }, [customIcon, bloodbank]); 
+  
   const filteredMarkers = markers.filter((marker) =>
     marker.medicines.some((medicine) =>
       medicine.toLowerCase().includes(searchQuery.toLowerCase())
