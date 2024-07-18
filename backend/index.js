@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Environment variables
 const port = process.env.PORT || 5000;
-const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = process.env.MONGO_URI;
 
 if (!mongoUrl) {
     throw new Error('MONGO_URL environment variable is not set');

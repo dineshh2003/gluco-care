@@ -77,8 +77,8 @@ const PatientInfo: React.FC = () => {
         <div className="relative inline-block">
           <Image src="/logo-1.png" height={80} width={80} alt="Patient Photo" className="rounded-full" />
         </div>
-        <h2 className="text-xl font-semibold mt-4">jadu</h2>
-        <p className="text-gray-600">Patient ID: jadu123</p>
+        <h2 className="text-xl font-semibold mt-4">Aatma Ram Bhide</h2>
+        <p className="text-gray-600">Patient ID: 122ee*****</p>
       </div>
 
       <div className="mt-6 bg-green-50 p-4 rounded-lg shadow-inner">
@@ -89,7 +89,7 @@ const PatientInfo: React.FC = () => {
           <li className="flex justify-between"><strong>Age:</strong><span> 21 yrs. old</span></li>
           <li className="flex justify-between"><strong>Gender:</strong><span>male</span></li>
           <li className="flex justify-between"><strong>Blood Group:</strong><span> O+ </span></li>
-          <li className="flex justify-between"><strong>Location:</strong><span> mars</span></li>
+          <li className="flex justify-between"><strong>Location:</strong><span> Powder Gali, Goregaon</span></li>
         </ul>
       </div>
 
@@ -99,8 +99,8 @@ const PatientInfo: React.FC = () => {
         </h3>
         <ul className="mt-2 text-gray-600 space-y-1">
           <li className="flex justify-between"><strong>Condition:</strong><span>Dhoop</span></li>
-          <li className="flex justify-between"><strong>BMI:</strong><span>thik hai</span></li>
-          <li className="flex justify-between"><strong>Allergies:</strong><span> krish </span></li>
+          <li className="flex justify-between"><strong>BMI:</strong><span>27</span></li>
+          <li className="flex justify-between"><strong>Allergies:</strong><span> Dust Particles </span></li>
         </ul>
       </div>
     </div>
