@@ -13,7 +13,7 @@ With an intuitive user interface and robust backend, GLUCO-CARE facilitates smoo
   
 ![Live Heartbeat monitoring](https://i.postimg.cc/rFX08GqW/chat-bot.png)
 
-* **Map-Based Search Functionality**: Find medicines and blood groups across India with contact information in real-time. you may click on this link for Better Video Explanation for this functionality
+* **Map-Based Search Functionality**: Find medicines and blood groups across India with contact information in real-time. you may click on this link for Better Video Explanation for this functionality  [here](https://youtu.be/CJfnW_TlI2g).
 
 ![Live Heartbeat monitoring](https://i.postimg.cc/NFCw0qnb/map.png)
 
@@ -119,6 +119,5 @@ Distributed under the MIT License.
 
 Dinesh Jangid - [dinujangid89@gmail.com](mailto:dinujangid89@gmail.com)
 
-Thank-you for visitig Gluco-core...
-
+Thank-you for visitig Gluco-core.
 
