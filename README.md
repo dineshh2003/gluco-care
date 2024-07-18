@@ -3,7 +3,7 @@
 Welcome to **GLUCO-CARE** – the personal health-care assistant application for patients. 
 
 ## About the Project
-GLUCO-CARE is designed to be an all-in-one solution for diabetes patients, providing tools and features to manage their condition effectively. Leveraging advanced machine learning models and real-time technologies, GLUCO-CARE ensures timely access to necessary medical resources and professional consultations.
+GlucoCare not only predicts your chances of diabetes but also helps diagnose it with the help of the fine-tuned GEMINI Model. Additionally, it features a map-based search functionality to find medicines and blood groups across India, with the functionality to order the medicine and get the contact information, making it invaluable in emergencies.
 
 With an intuitive user interface and robust backend, GLUCO-CARE facilitates smooth and hassle-free transactions for users. From predicting diabetes to finding medicines in emergencies, GLUCO-CARE is your go-to health-care assistant.
 
