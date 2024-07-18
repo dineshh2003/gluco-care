@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gluco-Care
 
-## Getting Started
+Welcome to **GLUCO-CARE** – the personal health-care assistant application for patients. 
 
-First, run the development server:
+## About the Project
+GLUCO-CARE is designed to be an all-in-one solution for diabetes patients, providing tools and features to manage their condition effectively. Leveraging advanced machine learning models and real-time technologies, GLUCO-CARE ensures timely access to necessary medical resources and professional consultations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+With an intuitive user interface and robust backend, GLUCO-CARE facilitates smooth and hassle-free transactions for users. From predicting diabetes to finding medicines in emergencies, GLUCO-CARE is your go-to health-care assistant.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features and Tech-Stack
+* **Diabetes Prediction and Diagnosis** : Predicts the likelihood of diabetes using the GEMINI Model and aids in the diagnosis process with detailed analysis and insights.
+  
+![Live Heartbeat monitoring](https://i.postimg.cc/rFX08GqW/chat-bot.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* **Map-Based Search Functionality**: Find medicines and blood groups across India with contact information in real-time. you may click on this link for Better Video Explanation for this functionality
 
-## Learn More
+![Live Heartbeat monitoring](https://i.postimg.cc/NFCw0qnb/map.png)
 
-To learn more about Next.js, take a look at the following resources:
+* **Real-Time Information**: Fully MERN stack implementation ensures that all information is provided in real-time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Live Heartbeat monitoring](https://i.postimg.cc/bNDT593t/exercise-new.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+![Live Heartbeat monitoring](https://i.postimg.cc/3NggKn6S/predictiton-model.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Tech Stack
+
+### Frontend
+
+- **Next.js**: For Frontend and a seamless user experience.
+- **Vercel**: Deployment platform for the frontend, ensuring high performance and reliability.
+
+### Backend
+
+- **Express**: Fast, unopinionated, minimalist web framework for Node.js.
+- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **MongoDB**: A powerful, flexible, and scalable NoSQL database.
+- **Railway**: Deployment platform for the backend, providing seamless integration and scalability.
+
+
+## Installation
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- Node.js
+- npm
+- MongoDB
+
+### Installation Steps
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/dineshh2003/gluco-care
+   ```
+2. Navigate to the project directory
+3. Install frontend dependencies
+   ```sh
+   npm install
+   ```
+4. Install backend dependencies
+   ```sh
+   cd backend
+   npm install
+   ```
+5. Set up environment variables by creating a `.env` file in the root of the backend directory
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   PORT = 5000
+   ```
+6. Set up environment variables by creating a `.env` file in the root of the Chatbot_backend directory for the proper working of the Gemini-Api
+   ```env
+   API_KEY : YOUR_GEMINI_API_KEY
+   ```
+
+
+## Usage
+
+To run the application locally:
+
+### Frontend
+
+1. Navigate to the frontend directory
+2. Start the development server
+   ```sh
+   npm run dev
+   ```
+   The frontend will be available at [http://localhost:3000](http://localhost:3000).
+
+### Backend
+
+1. Navigate to the backend directory
+   ```sh
+   cd backend
+   '''
+2. Start the backend server
+   ```sh
+   npm start
+   ```
+   The backend will be running on [http://localhost:5000](http://localhost:5000).
+   
+3. Start the backend server for Gemini
+   ```sh
+   cd ChatBot_backend
+   nodemon server.js
+   ```
+   The backend will be running on [http://localhost:4000](http://localhost:5000).
+
+
+   
+## License
+
+Distributed under the MIT License. 
+
+## Contact
+
+Dinesh Jangid - [dinujangid89@gmail.com](mailto:dinujangid89@gmail.com)
+
+Thank-you for visitig Gluco-core...
+
+
