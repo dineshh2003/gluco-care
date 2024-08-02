@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Link href="/">
           <FaHome className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="home" />
         </Link>
-        <Link href="/VideoCall">
+        <Link href="/video">
           <FaVideo className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer" title="Video Call" />
         </Link>
         <Link href="/orders">

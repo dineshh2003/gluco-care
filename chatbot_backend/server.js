@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 const apiKey = process.env.API_KEY;
 // Set up Google Generative AI
-const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenerativeAI('AIzaSyBv34w3O7xfHVYLgG8fWgvVRWCxeH4-TyQ');
 
 app.post('/predict', async (req, res) => {
   const { prompt } = req.body;
